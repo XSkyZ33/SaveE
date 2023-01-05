@@ -14,48 +14,46 @@ class Login extends StatelessWidget {
           alignment: Alignment.center,
           padding: const EdgeInsets.all(0),
           decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                "assets/Image5.png"
-              ),
-              fit: BoxFit.cover,
-            )
-          ),
+              image: DecorationImage(
+            image: AssetImage("assets/Image5.png"),
+            fit: BoxFit.cover,
+          )),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height*0.5,
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
               Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
                       Colors.transparent,
                       Colors.white.withOpacity(0.5),
                       Colors.white,
                     ],
-                    stops: const [
+                        stops: const [
                       0.0,
                       0.3,
                       0.5,
-                    ]
-
-                  )
-                ),
+                    ])),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*0.5,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child: Column(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
                       child: CircleAvatar(
-                        backgroundImage: AssetImage(
-                          "assets/Logo.png",
+                        backgroundColor: Pallette.kToDark,
+                        child: SizedBox(
+                          width: 66,
+                          height: 66,
+                          child: ClipOval(
+                            child: Image.asset("assets/Logo.png"),
+                          ),
                         ),
-                        radius: 66,
                       ),
                     ),
                     const SizedBox(height: 13),
@@ -74,7 +72,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 0, left: 0, right: 0),
+                      padding: const EdgeInsets.only(top: 20, left: 0, right: 0),
                       child: TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
