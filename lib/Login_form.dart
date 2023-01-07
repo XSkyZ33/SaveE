@@ -2,8 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:savee/config/Pallete.dart';
 import 'package:savee/home_page.dart';
 
-class Login_form extends StatelessWidget {
-  const Login_form({Key? key}) : super(key: key);
+import 'components/my_textfield.dart';
+
+class Login_form extends StatefulWidget {
+  Login_form({Key? key}) : super(key: key);
+
+  @override
+  State<Login_form> createState() => _Login_formState();
+}
+
+class _Login_formState extends State<Login_form> {
+
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void signUserIn(){
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,26 +47,26 @@ class Login_form extends StatelessWidget {
                     )),
               ),
             ),
-            const Padding(
+            SizedBox(
+              height: 25,
+            ),
+            Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(vertical:15, horizontal: 15),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                    hintText: 'Enter valid email id as abc@gmail.com'),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              child: MyTextField(
+                controller: emailController,
+                hintText: 'Email',
+                obscureText: false,
               ),
             ),
-            const Padding(
+            Padding(
               padding:
                   EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
+              child: MyTextField(
+                controller: passwordController,
+                hintText: 'Password',
                 obscureText: true,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                    hintText: 'Enter secure password'),
               ),
             ),
             TextButton(
@@ -70,7 +86,8 @@ class Login_form extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> homepage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => homepage()));
                 },
                 child: const Text(
                   'Login',
@@ -81,7 +98,6 @@ class Login_form extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const Text('New User? Create Account')
           ],
         ),
       ),
