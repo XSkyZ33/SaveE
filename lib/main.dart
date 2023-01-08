@@ -5,7 +5,7 @@ import 'auth.dart';
 import 'config/Pallete.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
