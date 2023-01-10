@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:savee/home_page.dart';
 import 'package:savee/splash.dart';
 import 'auth.dart';
 import 'config/Pallete.dart';
 
 void main() {
-  runApp(MultiProvider(child: const MyApp()));
+  runApp(MultiProvider(providers: [],
+  child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
