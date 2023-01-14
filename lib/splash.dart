@@ -43,7 +43,7 @@ class _SplashState extends State<Splash> {
                     width: 304.58,
                     height: 304.58,
                     child: Image.asset(
-                      'assets/eclipse.png',
+                      'assets/Splash.png',
                       width: 304.58,
                       height: 304.58,
                     ),

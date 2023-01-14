@@ -1,7 +1,24 @@
+
 import 'package:flutter/material.dart';
+import 'package:savee/components/dialog_box.dart';
 import 'config/Pallete.dart';
-class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+class Homepage extends StatefulWidget {
+   Homepage({Key? key}) : super(key: key);
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  final _controller = TextEditingController();
+
+  void SendAlert(){
+    showDialog(context: context, builder: (context) {
+      return DialogBox(
+        controller: _controller,
+      );
+    },);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,14 +120,12 @@ class Homepage extends StatelessWidget {
                     ]),
                   ),
                   Container(
-                    // autogroupxjdkMQv (KxufJD8mCHuwWWWXs8Xjdk)
                     margin: const EdgeInsets.fromLTRB(34, 0, 0, 16),
                     width: 374.33,
                     height: 126,
                     child: Stack(
                       children: [
                         Positioned(
-                          // ellipse41367c (22:2991)
                           left: 276,
                           top: 0,
                           child: Align(
@@ -135,11 +150,10 @@ class Homepage extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          // rectangle1533mDk (22:2989)
                           left: 0,
                           top: 36,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: SendAlert,
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
@@ -172,7 +186,6 @@ class Homepage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    // autogroupyu5yxZ8 (KxufQd7k3dHWCJJ9x2YU5Y)
                                     margin: const EdgeInsets.fromLTRB(
                                         0, 0, 13.5, 0),
                                     padding: const EdgeInsets.fromLTRB(
@@ -187,7 +200,6 @@ class Homepage extends StatelessWidget {
                                       ),
                                     ),
                                     child: Center(
-                                      // vectorGJv (29:3377)
                                       child: SizedBox(
                                         width: 31,
                                         height: 31,
@@ -208,7 +220,6 @@ class Homepage extends StatelessWidget {
                                           CrossAxisAlignment.end,
                                       children: [
                                         Container(
-                                          // avisarfuncionrio8M8 (22:2992)
                                           margin: const EdgeInsets.fromLTRB(
                                               0, 0, 0, 1),
                                           width: double.infinity,
@@ -224,7 +235,6 @@ class Homepage extends StatelessWidget {
                                           ),
                                         ),
                                         Container(
-                                          // aviseacercadeumpotencialgastoe (22:2993)
                                           width: double.infinity,
                                           constraints: const BoxConstraints(
                                             maxWidth: 171,
@@ -252,7 +262,6 @@ class Homepage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // autogrouppwzijri (KxufbnTp57iyhcxsewPwzi)
                     margin: const EdgeInsets.fromLTRB(0, 0, 34, 0),
                     width: 347,
                     height: 145.05,
@@ -260,7 +269,6 @@ class Homepage extends StatelessWidget {
                       child: Stack(
                         children: [
                           Positioned(
-                            // ellipse413UZQ (22:3001)
                             right: 280,
                             top: 63,
                             child: Align(
@@ -285,7 +293,6 @@ class Homepage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            // contactarxzN (22:2999)
                             left: 29,
                             top: 0,
                             child: TextButton(
@@ -322,7 +329,6 @@ class Homepage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
-                                      // autogroupht9gb1k (Kxufi2nQMXsBCarqtkHt9G)
                                       margin:
                                           const EdgeInsets.fromLTRB(0, 0, 11.67, 0),
                                       padding: const EdgeInsets.fromLTRB(
@@ -335,7 +341,6 @@ class Homepage extends StatelessWidget {
                                         ),
                                       ),
                                       child: Center(
-                                        // vector6DQ (29:3379)
                                         child: SizedBox(
                                           width: 31,
                                           height: 31,
