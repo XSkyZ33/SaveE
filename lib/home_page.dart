@@ -1,7 +1,10 @@
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:savee/components/dialog_box.dart';
 import 'config/Pallete.dart';
+import 'package:http/http.dart' as http;
 class Homepage extends StatefulWidget {
    Homepage({Key? key}) : super(key: key);
 
@@ -16,8 +19,29 @@ class _HomepageState extends State<Homepage> {
     showDialog(context: context, builder: (context) {
       return DialogBox(
         controller: _controller,
+        OnCancel: () => Navigator.of(context).pop(),
+        OnSave: SaveAlert,
       );
     },);
+  }
+
+  Future<void> SaveAlert() async {
+
+    var url = Uri.https('7c4e-213-22-142-169.eu.ngrok.io', 'Mudar o caminho');
+
+    var res = await http.post(url, headers: {
+      'ngrok-skip-browser-warning': '90000',
+      },
+      body: jsonEncode(<String, String>{
+          'Sala' : '',
+          "tipo de erro" : '',
+          "descricao" : '',
+      })
+    );
+
+
+
+
   }
 
   @override
