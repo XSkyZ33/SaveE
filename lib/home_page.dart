@@ -15,15 +15,15 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   final _controller = TextEditingController();
 
-  void SendAlert(){
-    showDialog(context: context, builder: (context) {
-      return DialogBox(
-        controller: _controller,
-        OnCancel: () => Navigator.of(context).pop(),
-        OnSave: SaveAlert,
-      );
-    },);
-  }
+   // void SendAlert(){
+    //showDialog(context: context, builder: (context) {
+      //return DialogBox(
+      //  controller: _controller,
+      //  OnCancel: () => Navigator.of(context).pop(),
+     // OnSave: SaveAlert,
+ //   );
+  //  },);
+//  }
 
   Future<void> SaveAlert() async {
 
