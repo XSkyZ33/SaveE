@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:savee/config/Pallete.dart';
 import 'package:savee/home_page.dart';
+import 'package:http/http.dart' as http;
 
 import 'components/my_textfield.dart';
 
@@ -17,7 +20,27 @@ class _Login_formState extends State<Login_form> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn(){
+  Future<void> signUserIn() async {
+    var url = Uri.https('7c4e-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
+
+    var res = await http.post(url, headers: {
+    'ngrok-skip-browser-warning': '90000',
+    },
+    body: jsonEncode(<String, String>{
+    'email' : emailController.text,
+    "password" : passwordController.text,
+    }));
+
+    if(res.statusCode == 200){
+      var token = res.body;
+      // ignore: use_build_context_synchronously
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => Homepage(
+          )));
+    }else{
+      print(res.statusCode);
+    }
+
 
   }
 
