@@ -21,10 +21,9 @@ class _AuthState extends State<Auth> {
     final prefs = await SharedPreferences.getInstance();
     var token = await prefs.getString('token');
 
-
     var response = await http.get(url, headers: {
       HttpHeaders.authorizationHeader: 'Bearer $token',
-      "Access-Control-Allow-Methods": "GET,PUT,PATCH,POST,DELETE"
+      'ngrok-skip-browser-warning': '90000',
     });
     if(response.statusCode == 200){
       print('ok');
