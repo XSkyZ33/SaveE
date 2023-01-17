@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:savee/config/Pallete.dart';
 import 'package:savee/home_page.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/my_textfield.dart';
 
@@ -33,12 +34,18 @@ class _Login_formState extends State<Login_form> {
 
     if(res.statusCode == 200){
       var token = res.body;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', token);
+      var CheckToken = await prefs.getString('token');
+      print(CheckToken);
       // ignore: use_build_context_synchronously
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => Homepage(
           )));
     }else{
       print(res.statusCode);
+      print(emailController.text);
+      print(passwordController.text);
     }
 
 
@@ -108,9 +115,10 @@ class _Login_formState extends State<Login_form> {
                   color: Colors.lightGreen,
                   borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Homepage()));
+                onPressed: () => {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Homepage(
+                )))
                 },
                 child: const Text(
                   'Login',

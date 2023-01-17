@@ -13,7 +13,11 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final _controller = TextEditingController();
+
+  final salaController = TextEditingController();
+  final tipoController = TextEditingController();
+  final descricaoController = TextEditingController();
+
 
    // void SendAlert(){
     //showDialog(context: context, builder: (context) {
@@ -38,11 +42,11 @@ class _HomepageState extends State<Homepage> {
           "descricao" : '',
       })
     );
-
-
-
-
   }
+
+   void Cancel(){
+
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +181,15 @@ class _HomepageState extends State<Homepage> {
                           left: 0,
                           top: 36,
                           child: TextButton(
-                            onPressed: SendAlert,
+                            onPressed: () => {
+                              DialogBox(
+                                OnSave: SaveAlert,
+                                OnCancel: Cancel,
+                                salaController: salaController,
+                                descricaoController: descricaoController,
+                                tipoController: tipoController,
+                              ),
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),

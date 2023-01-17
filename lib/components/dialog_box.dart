@@ -3,12 +3,20 @@ import 'my_button.dart';
 
 
 class DialogBox extends StatelessWidget {
-  final controller;
+  final TextEditingController salaController;
+  final TextEditingController tipoController;
+  final TextEditingController descricaoController;
 
   VoidCallback OnCancel;
   VoidCallback OnSave;
 
-  DialogBox({super.key, required this.controller, required this.OnCancel, required this.OnSave});
+  DialogBox({super.key,
+      required this.salaController,
+      required this.tipoController,
+      required this.descricaoController,
+      required this.OnCancel,
+      required this.OnSave}
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,7 @@ class DialogBox extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: TextField(
-                  controller: controller,
+                  controller: salaController,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: "Sala"
@@ -31,7 +39,7 @@ class DialogBox extends StatelessWidget {
               ),
               SizedBox(height: 15),
               TextField(
-                controller: controller,
+                controller: tipoController,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "tipo de erro"
@@ -39,7 +47,7 @@ class DialogBox extends StatelessWidget {
               ),
               SizedBox(height: 15),
               TextField(
-                controller: controller,
+                controller: descricaoController,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "descricao"
