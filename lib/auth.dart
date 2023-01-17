@@ -14,15 +14,17 @@ class Auth extends StatefulWidget {
 
 class _AuthState extends State<Auth> {
 
+
   Future<void> auth(BuildContext context) async {
-    var url = Uri.https('7c4e-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
+    var url = Uri.https('127.0.0.1:1880', '/Utilizadores/auth');
 
     final prefs = await SharedPreferences.getInstance();
     var token = await prefs.getString('token');
 
+
     var response = await http.get(url, headers: {
       HttpHeaders.authorizationHeader: 'Bearer $token',
-      'ngrok-skip-browser-warning': '90000',
+      "Access-Control-Allow-Methods": "GET,PUT,PATCH,POST,DELETE"
     });
     if(response.statusCode == 200){
       print('ok');

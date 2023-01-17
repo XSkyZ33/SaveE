@@ -19,29 +19,39 @@ class _HomepageState extends State<Homepage> {
   final descricaoController = TextEditingController();
 
 
-   // void SendAlert(){
-    //showDialog(context: context, builder: (context) {
-      //return DialogBox(
-      //  controller: _controller,
-      //  OnCancel: () => Navigator.of(context).pop(),
-     // OnSave: SaveAlert,
- //   );
-  //  },);
-//  }
+   void SendAlert(){
+    showDialog(context: context, builder: (context) {
+      return DialogBox(
+        descricaoController:descricaoController ,
+        salaController: salaController,
+        tipoController:  tipoController,
+        OnCancel: () => Navigator.of(context).pop(),
+      OnSave: SaveAlert,
+    );
+    },);
+  }
 
   Future<void> SaveAlert() async {
 
-    var url = Uri.https('7c4e-213-22-142-169.eu.ngrok.io', 'Mudar o caminho');
+      print(salaController.text);
+      print(tipoController.text);
+      print(descricaoController.text);
+    var url = Uri.https('127.0.0.1:1880', 'Mudar o caminho');
 
     var res = await http.post(url, headers: {
       'ngrok-skip-browser-warning': '90000',
       },
       body: jsonEncode(<String, String>{
-          'Sala' : '',
-          "tipo de erro" : '',
-          "descricao" : '',
+          'Sala' : salaController.text,
+          "tipo de erro" : tipoController.text,
+          "descricao" : descricaoController.text,
       })
     );
+
+    if(res.statusCode == 200){
+
+    }
+
   }
 
    void Cancel(){
@@ -181,15 +191,7 @@ class _HomepageState extends State<Homepage> {
                           left: 0,
                           top: 36,
                           child: TextButton(
-                            onPressed: () => {
-                              DialogBox(
-                                OnSave: SaveAlert,
-                                OnCancel: Cancel,
-                                salaController: salaController,
-                                descricaoController: descricaoController,
-                                tipoController: tipoController,
-                              ),
-                            },
+                            onPressed: SendAlert,
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),

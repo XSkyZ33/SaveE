@@ -22,7 +22,7 @@ class _Login_formState extends State<Login_form> {
   final passwordController = TextEditingController();
 
   Future<void> signUserIn() async {
-    var url = Uri.https('7c4e-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
+    var url = Uri.https('127.0.0.1:1880', '/Utilizadores/auth');
 
     var res = await http.post(url, headers: {
     'ngrok-skip-browser-warning': '90000',
