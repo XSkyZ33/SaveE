@@ -54,7 +54,6 @@ class DialogBox extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

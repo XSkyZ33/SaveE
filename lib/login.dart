@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'Login_form.dart';
+import 'Login_form_func.dart';
 import 'config/Pallete.dart';
 
 class Login extends StatefulWidget {
@@ -50,14 +51,15 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 40, 5, 0),
                       child: CircleAvatar(
+                        radius: 34,
                         backgroundColor: Pallette.kToDark,
                         child: SizedBox(
-                          width: 66,
-                          height: 66,
+                          width: 60,
+                          height: 60,
                           child: ClipOval(
-                            child: Image.asset("assets/Logo.png"),
+                            child: Image.asset("assets/logo_white.png"),
                           ),
                         ),
                       ),
@@ -80,12 +82,14 @@ class _LoginState extends State<Login> {
                     Padding(
                       padding: const EdgeInsets.only(top: 20, left: 0, right: 0),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Login_form_func()));
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
                         child: Container(
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery.of(context).size.width * 0.9,
                             height: 44,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(100),
@@ -94,7 +98,7 @@ class _LoginState extends State<Login> {
                             child: const Align(
                               alignment: Alignment.center,
                               child: Text(
-                                "Admin",
+                                "Funcionario",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -113,7 +117,7 @@ class _LoginState extends State<Login> {
                           padding: EdgeInsets.zero,
                         ),
                         child: Container(
-                          width: double.infinity,
+                          width: MediaQuery.of(context).size.width * 0.9,
                           height: 44,
                           decoration: BoxDecoration(
                               color: const Color(0x7fdddddd),

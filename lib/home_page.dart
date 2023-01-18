@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:savee/components/dialog_box.dart';
+import 'components/Aviso_Enviado.dart';
 import 'config/Pallete.dart';
 import 'package:http/http.dart' as http;
 class Homepage extends StatefulWidget {
@@ -36,27 +37,27 @@ class _HomepageState extends State<Homepage> {
       print(salaController.text);
       print(tipoController.text);
       print(descricaoController.text);
-    var url = Uri.https('127.0.0.1:1880', 'Mudar o caminho');
+    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Avisos');
 
     var res = await http.post(url, headers: {
       'ngrok-skip-browser-warning': '90000',
       },
-      body: jsonEncode(<String, String>{
-          'Sala' : salaController.text,
-          "tipo de erro" : tipoController.text,
+      body: {
+          'sala' : salaController.text,
+          "tipo" : tipoController.text,
           "descricao" : descricaoController.text,
-      })
-    );
+      });
+
 
     if(res.statusCode == 200){
-
+      // ignore: use_build_context_synchronously
+      Navigator.push(context, DialogRoute(context: context, builder: (context) => DialogBoxSend()));
+    } else {
+      print(res.statusCode);
+      print(res.body);
     }
 
   }
-
-   void Cancel(){
-
-   }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +108,7 @@ class _HomepageState extends State<Homepage> {
                                 width: 21,
                                 height: 26.01,
                                 child: Image.asset(
-                                  'assets/min_logo.png',
+                                  'assets/logo_verde.png',
                                   width: 21,
                                   height: 26.01,
                                 ),
@@ -334,7 +335,9 @@ class _HomepageState extends State<Homepage> {
                             left: 29,
                             top: 0,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, DialogRoute(context: context, builder: (context) => DialogBoxSend()));
+                              },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                               ),

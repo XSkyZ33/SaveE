@@ -4,6 +4,7 @@ import 'package:savee/home_page.dart';
 import 'package:savee/splash.dart';
 import 'auth.dart';
 import 'config/Pallete.dart';
+import 'home_page_func.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Splash(),
+      home: HomepageFunc(),
       theme: ThemeData(
         primarySwatch: Pallette.kToDark,
       ),

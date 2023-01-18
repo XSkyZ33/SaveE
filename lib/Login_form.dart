@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:savee/config/Pallete.dart';
 import 'package:savee/home_page.dart';
@@ -21,16 +19,17 @@ class _Login_formState extends State<Login_form> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+
   Future<void> signUserIn() async {
-    var url = Uri.https('127.0.0.1:1880', '/Utilizadores/auth');
+    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
 
     var res = await http.post(url, headers: {
     'ngrok-skip-browser-warning': '90000',
     },
-    body: jsonEncode(<String, String>{
-    'email' : emailController.text,
+    body: {
+    "email" : emailController.text,
     "password" : passwordController.text,
-    }));
+    });
 
     if(res.statusCode == 200){
       var token = res.body;
@@ -44,6 +43,7 @@ class _Login_formState extends State<Login_form> {
           )));
     }else{
       print(res.statusCode);
+      print(res.body);
       print(emailController.text);
       print(passwordController.text);
     }
@@ -71,7 +71,7 @@ class _Login_formState extends State<Login_form> {
                       shape: BoxShape.circle,
                     ),
                     child: Image.asset(
-                      'assets/Logo.png',
+                      'assets/logo_white.png',
                       width: 55,
                       height: 55,
                     )),
@@ -115,11 +115,7 @@ class _Login_formState extends State<Login_form> {
                   color: Colors.lightGreen,
                   borderRadius: BorderRadius.circular(20)),
               child: TextButton(
-                onPressed: () => {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Homepage(
-                )))
-                },
+                onPressed: signUserIn,
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),

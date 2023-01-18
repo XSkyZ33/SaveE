@@ -82,6 +82,10 @@ flutter:
     - assets/person.png
     - assets/radio.png
     - assets/Splash.png
+    - assets/send.png
+    - assets/logo_white.png
+    - assets/logo_verde.png
+    - assets/pink.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
