@@ -53,8 +53,8 @@ class _AvisosState extends State<Avisos1> {
                 child: Row(
                   children: [
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 100,
+                      width: 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: Pallette.kToDark

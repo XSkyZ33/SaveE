@@ -14,14 +14,14 @@ class Avisos {
     required this.sala,
     required this.tipo,
     required this.descricao,
-    required this.estado,
+    this.estado,
   });
 
   String id;
   String sala;
   String tipo;
   String descricao;
-  String estado;
+  String? estado;
 
   factory Avisos.fromJson(Map<String, dynamic> json) => Avisos(
     id: json["_id"],
