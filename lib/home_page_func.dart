@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:savee/components/dialog_box.dart';
 import 'Avisos.dart';
+import 'Info.dart';
 import 'components/Aviso_Enviado.dart';
 import 'config/Pallete.dart';
 import 'package:http/http.dart' as http;
@@ -38,7 +39,7 @@ class _HomepageFuncState extends State<HomepageFunc> {
     print(salaController.text);
     print(tipoController.text);
     print(descricaoController.text);
-    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Avisos');
+    var url = Uri.https('2345-213-22-142-169.eu.ngrok.io', '/Avisos');
 
     var res = await http.post(url, headers: {
       'ngrok-skip-browser-warning': '90000',
@@ -63,6 +64,7 @@ class _HomepageFuncState extends State<HomepageFunc> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
@@ -339,7 +341,7 @@ class _HomepageFuncState extends State<HomepageFunc> {
                             top: 0,
                             child: TextButton(
                               onPressed: () {
-                                Navigator.push(context, DialogRoute(context: context, builder: (context) => DialogBoxSend()));
+                                Navigator.push(context, DialogRoute(context: context, builder: (context) => Info()));
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,

@@ -5,7 +5,7 @@ class RemoteService
 {
   Future<List<Avisos>?> getAvisos() async
   {
-    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Avisos');
+    var url = Uri.https('2345-213-22-142-169.eu.ngrok.io', '/Avisos');
     var response = await http.get(url, headers: {
       'ngrok-skip-browser-warning': '90000',
     });

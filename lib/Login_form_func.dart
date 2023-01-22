@@ -22,7 +22,7 @@ class _Login_form_func_State extends State<Login_form_func> {
 
 
   Future<void> signUserInFunc() async {
-    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Utilizadores/funcionarios/auth');
+    var url = Uri.https('2345-213-22-142-169.eu.ngrok.io', '/Utilizadores/funcionarios/auth');
 
     var res = await http.post(url, headers: {
       'ngrok-skip-browser-warning': '90000',

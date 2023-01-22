@@ -16,7 +16,7 @@ class _AuthState extends State<Auth> {
 
 
   Future<void> auth(BuildContext context) async {
-    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
+    var url = Uri.https('2345-213-22-142-169.eu.ngrok.io', '/Utilizadores/auth');
 
     final prefs = await SharedPreferences.getInstance();
     var token = await prefs.getString('token');

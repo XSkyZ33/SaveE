@@ -37,7 +37,7 @@ class _HomepageState extends State<Homepage> {
       print(salaController.text);
       print(tipoController.text);
       print(descricaoController.text);
-    var url = Uri.https('393c-213-22-142-169.eu.ngrok.io', '/Avisos');
+    var url = Uri.https('2345-213-22-142-169.eu.ngrok.io', '/Avisos');
 
     var res = await http.post(url, headers: {
       'ngrok-skip-browser-warning': '90000',
